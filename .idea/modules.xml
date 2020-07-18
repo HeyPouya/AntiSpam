@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AntiSpam.iml" filepath="$PROJECT_DIR$/AntiSpam.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/AntiSpam-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/AntiSpam-app.iml" group="AntiSpam/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/StudioProjects-AntiSpam.iml" filepath="$PROJECT_DIR$/.idea/modules/StudioProjects-AntiSpam.iml" group="AntiSpam" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

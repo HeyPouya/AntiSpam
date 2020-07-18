@@ -4,14 +4,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/input_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="100dp">
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="10dp">
 
         <EditText
             android:id="@+id/edt_get_number"
@@ -21,9 +21,9 @@
             android:inputType="number"
             android:maxLength="11"
             android:textColor="@android:color/black" />
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <ir.apptune.antispam.views.MyTextView
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
@@ -40,7 +40,7 @@
         android:layout_margin="30dp"
         android:text="@string/search" />
 
-    <ir.apptune.antispam.views.MyTextView
+    <TextView
         android:id="@+id/txt_show_city"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

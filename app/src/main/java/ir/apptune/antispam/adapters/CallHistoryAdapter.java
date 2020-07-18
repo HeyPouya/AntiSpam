@@ -3,7 +3,7 @@ package ir.apptune.antispam.adapters;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,8 +20,6 @@ import ir.apptune.antispam.CalendarTool;
 import ir.apptune.antispam.Checkcontact;
 import ir.apptune.antispam.ExternalDbOpenHelper;
 import ir.apptune.antispam.R;
-import ir.apptune.antispam.ThePhoneStateListener;
-import ir.apptune.antispam.fragments.MyFragment;
 import ir.apptune.antispam.models.CallModel;
 
 
