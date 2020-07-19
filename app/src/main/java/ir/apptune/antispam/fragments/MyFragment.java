@@ -33,8 +33,6 @@ public class MyFragment extends Fragment {
     TextInputLayout inputLayout;
     RecyclerView rc;
     SQLiteDatabase database;
-    private static final String DB_NAME = "my.db";
-
 
     @Nullable
     @Override
@@ -48,7 +46,7 @@ public class MyFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         RecyclerView rc = getView().findViewById(R.id.rc);
         ArrayList<CallModel> list = CallDetailClass.getCallDetails(getContext());
-        CallHistoryAdapter adapter = new CallHistoryAdapter(list, getContext());
+        CallHistoryAdapter adapter = new CallHistoryAdapter(list);
 
         rc.setAdapter(adapter);
         rc.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
