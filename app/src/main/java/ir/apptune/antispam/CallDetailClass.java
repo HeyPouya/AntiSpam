@@ -7,7 +7,7 @@ import android.provider.CallLog;
 import java.util.ArrayList;
 import java.util.Date;
 
-import ir.apptune.antispam.models.CallModel;
+import ir.apptune.antispam.pojos.CallModel;
 
 public class CallDetailClass {
     public static ArrayList<CallModel> getCallDetails(Context context) {

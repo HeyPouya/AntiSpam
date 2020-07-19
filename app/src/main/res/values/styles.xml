@@ -1,15 +1,10 @@
 <resources>
 
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:textColorPrimary">@android:color/black</item>
-    </style>
-    <style name="CustomToolbarTheme" parent="Base.Widget.AppCompat.ActionBar">
-        <item name="android:textColorPrimary">#FFFFFF</item>
-        <item name="android:textSize">1sp</item>
-        <item name="android:labelTextSize">5sp</item>
+        <item name="android:fontFamily">@font/vazir</item>
     </style>
 </resources>

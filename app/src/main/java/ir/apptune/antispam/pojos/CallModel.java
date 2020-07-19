@@ -1,4 +1,4 @@
-package ir.apptune.antispam.models;
+package ir.apptune.antispam.pojos;
 
 import java.util.Date;
 

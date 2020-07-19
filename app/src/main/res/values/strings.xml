@@ -3,17 +3,10 @@
     <string name="please_insert_the_phone_number">لطفا شماره تلفن مورد نظر خود را وارد کنید</string>
     <string name="search">جستجو</string>
     <string name="take_care_of_the_number">*توجه کنید که شماره مورد نظر شما حتما با 0 شروع شده و 11 رقمی باشد.</string>
-    <string-array name="tabs">
-        <item>سابقه ی تماس</item>
-        <item>مکان یابی</item>
-    </string-array>
     <string name="sms_send">Sms Sent</string>
     <string name="sms_not_send">Sms Not Sent</string>
     <string name="sms_not_send_no_service">No Service</string>
     <string name="sms_not_send_no_radio">No Radio</string>
-    <string name="sms_receive">Sms Recieved</string>
-    <string name="sms_not_receive">Sms Not Recieved</string>
-    <string name="cannot_send_sms">Cannot Send Sms</string>
-    <string name="sms_permission">لطفا برای ارسال پیام عضویت و ورورد به اپ، دسترسی به ارسال sms رو تایید کنید</string>
+    <string name="call_status_icon">Call Status Icon</string>
 
 </resources>
