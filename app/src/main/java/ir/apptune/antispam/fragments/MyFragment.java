@@ -11,15 +11,17 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
 
-import ir.apptune.antispam.CallDetailClass;
+import ir.apptune.antispam.CallDetailClassKt;
 import ir.apptune.antispam.R;
 import ir.apptune.antispam.adapters.CallHistoryAdapter;
 import ir.apptune.antispam.pojos.CallModel;
@@ -44,8 +46,11 @@ public class MyFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        MaterialToolbar toolbar = getView().findViewById(R.id.toolbar);
+        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
         RecyclerView rc = getView().findViewById(R.id.rc);
-        ArrayList<CallModel> list = CallDetailClass.getCallDetails(getContext());
+        ArrayList<CallModel> list = CallDetailClassKt.getCallDetails(getContext());
         CallHistoryAdapter adapter = new CallHistoryAdapter(list);
 
         rc.setAdapter(adapter);
