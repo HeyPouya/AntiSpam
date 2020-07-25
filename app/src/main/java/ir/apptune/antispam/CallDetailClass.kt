@@ -7,6 +7,7 @@ import android.provider.ContactsContract
 import ir.apptune.antispam.pojos.CallModel
 import ir.apptune.antispam.utils.CALL_LOG_SORT
 import ir.apptune.antispam.utils.CalendarTool
+import ir.apptune.antispam.utils.DATABASE_NAME
 import java.util.*
 
 fun getCallDetails(context: Context): ArrayList<CallModel> {
@@ -15,18 +16,42 @@ fun getCallDetails(context: Context): ArrayList<CallModel> {
             null, null, null, CALL_LOG_SORT)
 
     if (cursor != null) {
-        val number = cursor.getColumnIndex(CallLog.Calls.NUMBER)
-        val type = cursor.getColumnIndex(CallLog.Calls.TYPE)
-        val date = cursor.getColumnIndex(CallLog.Calls.DATE)
+        val callLogNumber = cursor.getColumnIndex(CallLog.Calls.NUMBER)
+        val callLogType = cursor.getColumnIndex(CallLog.Calls.TYPE)
+        val callLogDate = cursor.getColumnIndex(CallLog.Calls.DATE)
 
         while (cursor.moveToNext()) {
-            val number = cursor.getString(number)
-            val model = CallModel(number, getIranianDate(cursor.getString(date).toLong()), cursor.getInt(type), getContactName(context, number))
+            val number = cursor.getString(callLogNumber)
+            val model = CallModel(number, getIranianDate(cursor.getString(callLogDate).toLong()), cursor.getInt(callLogType), getContactName(context, number), getCallLocation(number, context))
             list.add(model)
         }
     }
     cursor?.close()
     return list
+}
+
+private fun getCallLocation(number: String, context: Context): String {
+    var address = "شماره تلفن پیدا نشد!"
+    var userNumber = number
+    if (userNumber.substring(0, 1)[0] == '*')
+        address = "کد دستوری"
+
+    if (userNumber.substring(0, 1)[0] == '0')
+        userNumber = "+98" + userNumber.substring(1)
+
+    userNumber = userNumber.replace("+98", "")
+
+    val database = ExternalDbOpenHelper(context, DATABASE_NAME).openDataBase()
+    for (i in 2..8) {
+        val friendCursor = database.rawQuery("SELECT * from phone_location where _id=" + userNumber.substring(0, i), null)
+        friendCursor.moveToFirst()
+        if (friendCursor.count != 0) {
+            address = friendCursor.getString(1)
+        }
+        friendCursor.close()
+    }
+    return address
+
 }
 
 private fun getIranianDate(date: Long): String {
