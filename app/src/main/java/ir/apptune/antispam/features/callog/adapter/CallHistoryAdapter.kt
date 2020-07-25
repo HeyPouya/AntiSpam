@@ -1,26 +1,24 @@
-package ir.apptune.antispam.adapters
+package ir.apptune.antispam.features.callog.adapter
 
 import android.provider.CallLog
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import ir.apptune.antispam.R
-import ir.apptune.antispam.adapters.CallHistoryAdapter.MyViewHolder
+import ir.apptune.antispam.features.callog.adapter.CallHistoryAdapter.MyViewHolder
 import ir.apptune.antispam.pojos.CallModel
 import kotlinx.android.synthetic.main.call_history_item.view.*
-import java.util.*
 
-class CallHistoryAdapter(private val list: ArrayList<CallModel>) : RecyclerView.Adapter<MyViewHolder>() {
+class CallHistoryAdapter : ListAdapter<CallModel, MyViewHolder>(CallHistoryDiffUtils()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.call_history_item, parent, false)
         return MyViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) = holder.bind(list[position])
-
-    override fun getItemCount() = list.size
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) = holder.bind(getItem(position))
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(model: CallModel) {
@@ -35,11 +33,8 @@ class CallHistoryAdapter(private val list: ArrayList<CallModel>) : RecyclerView.
                         CallLog.Calls.MISSED_TYPE -> imgCallStatus.setImageResource(R.drawable.ic_missed_call)
                         else -> imgCallStatus.setImageResource(R.drawable.ic_unknown_call)
                     }
-
                 }
             }
-
-
         }
     }
 }
