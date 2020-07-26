@@ -4,7 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewGroup.LayoutParams.MATCH_PARENT
+import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -14,7 +17,7 @@ import kotlinx.android.synthetic.main.fragment_call_history.*
 
 class CallDetailsFragment : Fragment() {
 
-    lateinit var viewModel: CallDetailsViewModel
+    private lateinit var viewModel: CallDetailsViewModel
     private val adapter by lazy { CallHistoryAdapter() }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -26,6 +29,7 @@ class CallDetailsFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         (activity as AppCompatActivity?)!!.setSupportActionBar(toolbar)
 
+        setStatusBar()
         rc.adapter = adapter
         viewModel = ViewModelProvider.AndroidViewModelFactory.getInstance(activity?.application!!).create(CallDetailsViewModel::class.java)
 
@@ -33,6 +37,20 @@ class CallDetailsFragment : Fragment() {
             adapter.submitList(it)
         })
     }
+
+    private fun setStatusBar() {
+        val layout = FrameLayout(requireContext())
+        layout.layoutParams = FrameLayout.LayoutParams(MATCH_PARENT, getStatusBarHeight())
+        layout.background = ContextCompat.getDrawable(requireContext(), R.drawable.toolbar_gradiant)
+        root.addView(layout, 0)
+
+    }
+
+    private fun getStatusBarHeight(): Int {
+        val resourceId = resources.getIdentifier("status_bar_height", "dimen", "android")
+        return if (resourceId > 0) resources.getDimensionPixelSize(resourceId) else 0
+    }
+
     //    private void showSearchData() {
 
     //        txtShowCity = (TextView) getView().findViewById(R.id.txt_show_city);

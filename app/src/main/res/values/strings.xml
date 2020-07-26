@@ -8,5 +8,7 @@
     <string name="sms_not_send_no_service">No Service</string>
     <string name="sms_not_send_no_radio">No Radio</string>
     <string name="call_status_icon">Call Status Icon</string>
+    <string name="no_matching_result">شماره تلفن پیدا نشد!</string>
+    <string name="instructional_code">کد دستوری</string>
 
 </resources>

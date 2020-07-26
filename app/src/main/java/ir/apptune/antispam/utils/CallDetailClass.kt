@@ -5,6 +5,7 @@ import android.net.Uri
 import android.provider.CallLog
 import android.provider.ContactsContract
 import ir.apptune.antispam.ExternalDbOpenHelper
+import ir.apptune.antispam.R
 import ir.apptune.antispam.pojos.CallModel
 import java.util.*
 
@@ -29,10 +30,10 @@ suspend fun getCallDetails(context: Context): ArrayList<CallModel> {
 }
 
 private suspend fun getCallLocation(number: String, context: Context): String {
-    var address = "شماره تلفن پیدا نشد!"
+    var address = context.getString(R.string.no_matching_result)
     var userNumber = number
     if (userNumber.substring(0, 1)[0] == '*')
-        address = "کد دستوری"
+        address = context.getString(R.string.instructional_code)
 
     if (userNumber.substring(0, 1)[0] == '0')
         userNumber = "+98" + userNumber.substring(1)

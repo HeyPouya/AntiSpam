@@ -7,5 +7,6 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:fontFamily">@font/vazir</item>
         <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:windowTranslucentStatus">true</item>
     </style>
 </resources>
