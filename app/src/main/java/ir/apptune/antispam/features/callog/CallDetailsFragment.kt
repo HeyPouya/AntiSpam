@@ -10,14 +10,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import ir.apptune.antispam.R
 import ir.apptune.antispam.features.callog.adapter.CallHistoryAdapter
 import kotlinx.android.synthetic.main.fragment_call_history.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CallDetailsFragment : Fragment() {
 
-    private lateinit var viewModel: CallDetailsViewModel
+    private val viewModel: CallDetailsViewModel by viewModel()
     private val adapter by lazy { CallHistoryAdapter() }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -31,7 +31,6 @@ class CallDetailsFragment : Fragment() {
 
         setStatusBar()
         rc.adapter = adapter
-        viewModel = ViewModelProvider.AndroidViewModelFactory.getInstance(activity?.application!!).create(CallDetailsViewModel::class.java)
 
         viewModel.getLiveDataResponse().observe(viewLifecycleOwner, Observer {
             adapter.submitList(it)
