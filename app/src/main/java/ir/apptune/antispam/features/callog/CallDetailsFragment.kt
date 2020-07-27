@@ -5,15 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
-import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import ir.apptune.antispam.R
 import ir.apptune.antispam.features.callog.adapter.CallHistoryAdapter
+import ir.apptune.antispam.pojos.LiveDataResource
 import ir.apptune.antispam.utils.getStatusBarHeight
 import kotlinx.android.synthetic.main.fragment_call_history.*
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CallDetailsFragment : Fragment() {
@@ -26,6 +28,7 @@ class CallDetailsFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_call_history, container, false)
     }
 
+    @ExperimentalCoroutinesApi
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         (activity as AppCompatActivity?)!!.setSupportActionBar(toolbar)
@@ -34,16 +37,39 @@ class CallDetailsFragment : Fragment() {
         rc.adapter = adapter
 
         viewModel.getLiveDataResponse().observe(viewLifecycleOwner, Observer {
-            adapter.submitList(it)
+            when (it) {
+                is LiveDataResource.Loading -> showLoading()
+                is LiveDataResource.Completed -> {
+                    hideLoading()
+                    if (it.callModel.isEmpty())
+                        showEmptyState()
+                }
+                is LiveDataResource.Success -> {
+                    adapter.submitList(it.callModel)
+                }
+            }
+
         })
     }
 
-    private fun setStatusBar() {
-        val layout = FrameLayout(requireContext())
-        layout.layoutParams = FrameLayout.LayoutParams(MATCH_PARENT, getStatusBarHeight(requireContext()))
-        layout.background = ContextCompat.getDrawable(requireContext(), R.drawable.toolbar_gradiant)
-        root.addView(layout, 0)
+    private fun showEmptyState() {
+        TODO("Not yet implemented")
+    }
 
+    private fun hideLoading() {
+        prgLoading.visibility = View.GONE
+        rc.visibility = View.VISIBLE
+    }
+
+    private fun showLoading() {
+        prgLoading.visibility = View.VISIBLE
+        rc.visibility = View.GONE
+    }
+
+    private fun setStatusBar() {
+        val statusBarHeight = getStatusBarHeight(requireContext())
+        viewStatusBar.layoutParams = ConstraintLayout.LayoutParams(MATCH_PARENT, statusBarHeight)
+        viewStatusBar.background = ContextCompat.getDrawable(requireContext(), R.drawable.toolbar_shape)
     }
     //    private void showSearchData() {
 
