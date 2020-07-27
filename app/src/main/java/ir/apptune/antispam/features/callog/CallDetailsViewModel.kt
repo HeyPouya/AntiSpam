@@ -8,18 +8,22 @@ import androidx.lifecycle.viewModelScope
 import ir.apptune.antispam.pojos.CallModel
 import ir.apptune.antispam.repository.Repository
 import ir.apptune.antispam.utils.getCallDetails
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class CallDetailsViewModel(application: Application, private val repository: Repository) : AndroidViewModel(application) {
 
-    private val liveDataResponse = MutableLiveData<ArrayList<CallModel>>()
+    private val liveDataResponse = MutableLiveData<List<CallModel>>()
+    private val list = arrayListOf<CallModel>()
 
     init {
         viewModelScope.launch {
-            val list = getCallDetails(application, repository)
-            liveDataResponse.postValue(list)
+            getCallDetails(application, repository).collect {
+                list.add(it)
+                liveDataResponse.postValue(list.toList())
+            }
         }
     }
 
-    fun getLiveDataResponse(): LiveData<ArrayList<CallModel>> = liveDataResponse
+    fun getLiveDataResponse(): LiveData<List<CallModel>> = liveDataResponse
 }
