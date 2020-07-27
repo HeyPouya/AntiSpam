@@ -1,8 +1,6 @@
 package ir.apptune.antispam.features.callog
 
-import android.content.ContentValues.TAG
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import ir.apptune.antispam.R
 import ir.apptune.antispam.features.callog.adapter.CallHistoryAdapter
+import ir.apptune.antispam.utils.getStatusBarHeight
 import kotlinx.android.synthetic.main.fragment_call_history.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -41,17 +40,11 @@ class CallDetailsFragment : Fragment() {
 
     private fun setStatusBar() {
         val layout = FrameLayout(requireContext())
-        layout.layoutParams = FrameLayout.LayoutParams(MATCH_PARENT, getStatusBarHeight())
+        layout.layoutParams = FrameLayout.LayoutParams(MATCH_PARENT, getStatusBarHeight(requireContext()))
         layout.background = ContextCompat.getDrawable(requireContext(), R.drawable.toolbar_gradiant)
         root.addView(layout, 0)
 
     }
-
-    private fun getStatusBarHeight(): Int {
-        val resourceId = resources.getIdentifier("status_bar_height", "dimen", "android")
-        return if (resourceId > 0) resources.getDimensionPixelSize(resourceId) else 0
-    }
-
     //    private void showSearchData() {
 
     //        txtShowCity = (TextView) getView().findViewById(R.id.txt_show_city);
