@@ -1,5 +1,7 @@
 package ir.apptune.antispam.features.callog
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +15,7 @@ import androidx.lifecycle.Observer
 import ir.apptune.antispam.R
 import ir.apptune.antispam.features.callog.adapter.CallHistoryAdapter
 import ir.apptune.antispam.pojos.LiveDataResource
+import ir.apptune.antispam.pojos.PermissionStatusEnum
 import ir.apptune.antispam.utils.getStatusBarHeight
 import kotlinx.android.synthetic.main.empty_state_layout.*
 import kotlinx.android.synthetic.main.fragment_call_history.*
@@ -21,6 +24,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CallDetailsFragment : Fragment() {
 
+    @ExperimentalCoroutinesApi
     private val viewModel: CallDetailsViewModel by viewModel()
     private val adapter by lazy { CallHistoryAdapter() }
 
@@ -37,21 +41,37 @@ class CallDetailsFragment : Fragment() {
         setStatusBar()
         recycler.adapter = adapter
 
+        if (savedInstanceState == null)
+            viewModel.getCallLog(getPermissions())
+
         viewModel.getLiveDataResponse().observe(viewLifecycleOwner, Observer {
             when (it) {
                 is LiveDataResource.Loading -> prgLoading.visibility = View.VISIBLE
+                is LiveDataResource.Success -> adapter.submitList(it.callModel)
                 is LiveDataResource.Completed -> {
                     hideLoading()
                     adapter.submitList(it.callModel)
                     if (it.callModel.isEmpty())
                         showEmptyState()
                 }
-                is LiveDataResource.Success -> {
-                    adapter.submitList(it.callModel)
-                }
+                is LiveDataResource.NoCallLogPermission -> showNoPermissionState()
             }
 
         })
+    }
+
+    private fun showNoPermissionState() {
+        prgLoading.visibility = View.GONE
+        recycler.visibility = View.GONE
+        layoutCallLogEmpty.visibility = View.VISIBLE
+        txtCallLogEmpty.text = getString(R.string.please_provide_call_log_permission_to_see_the_call_log)
+    }
+
+    private fun getPermissions(): Map<PermissionStatusEnum, Boolean> {
+        val result = hashMapOf<PermissionStatusEnum, Boolean>()
+        result[PermissionStatusEnum.CALL_LOG] = ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_CALL_LOG) == PackageManager.PERMISSION_GRANTED
+        result[PermissionStatusEnum.READ_CONTACTS] = ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_CONTACTS) == PackageManager.PERMISSION_GRANTED
+        return result
     }
 
     private fun showEmptyState() {

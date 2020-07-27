@@ -11,5 +11,6 @@
     <string name="no_matching_result">شماره تلفن پیدا نشد!</string>
     <string name="instructional_code">کد دستوری</string>
     <string name="your_call_log_is_empty">تاریخچه تماس شما خالیست!</string>
+    <string name="please_provide_call_log_permission_to_see_the_call_log">برای مشاهده تاریخچه تماس، لطفا دسترسی مورد نظر را از بخش تنظیمات فراهم کنید</string>
 
 </resources>

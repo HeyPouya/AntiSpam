@@ -10,7 +10,7 @@ import ir.apptune.antispam.repository.Repository
 import kotlinx.coroutines.flow.flow
 import java.util.*
 
-suspend fun getCallDetails(context: Context, repository: Repository) = flow {
+suspend fun getCallDetails(context: Context, repository: Repository, contactsPermission: Boolean) = flow {
     val cursor = context.contentResolver.query(CallLog.Calls.CONTENT_URI,
             null, null, null, CALL_LOG_SORT)
 
@@ -21,7 +21,12 @@ suspend fun getCallDetails(context: Context, repository: Repository) = flow {
 
         while (cursor.moveToNext()) {
             val number = cursor.getString(callLogNumber)
-            val model = CallModel(number, getIranianDate(cursor.getString(callLogDate).toLong()), cursor.getInt(callLogType), getContactName(context, number), getCallLocation(number, context, repository))
+            val contactName = if (contactsPermission) getContactName(context, number) else number
+            val model = CallModel(number,
+                    getIranianDate(cursor.getString(callLogDate).toLong()),
+                    cursor.getInt(callLogType),
+                    contactName,
+                    getCallLocation(number, context, repository))
             emit(model)
         }
     }
@@ -49,9 +54,8 @@ private suspend fun getIranianDate(date: Long): String {
 }
 
 private suspend fun getContactName(context: Context, phoneNumber: String?): String? {
-    val cr = context.contentResolver
     val uri = Uri.withAppendedPath(ContactsContract.PhoneLookup.CONTENT_FILTER_URI, Uri.encode(phoneNumber))
-    val cursor = cr.query(uri, arrayOf(ContactsContract.PhoneLookup.DISPLAY_NAME), null, null, null)
+    val cursor = context.contentResolver.query(uri, arrayOf(ContactsContract.PhoneLookup.DISPLAY_NAME), null, null, null)
             ?: return null
     val contactName = if (cursor.moveToFirst())
         cursor.getString(cursor.getColumnIndex(ContactsContract.PhoneLookup.DISPLAY_NAME))
