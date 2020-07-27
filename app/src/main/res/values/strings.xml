@@ -10,5 +10,6 @@
     <string name="call_status_icon">Call Status Icon</string>
     <string name="no_matching_result">شماره تلفن پیدا نشد!</string>
     <string name="instructional_code">کد دستوری</string>
+    <string name="your_call_log_is_empty">تاریخچه تماس شما خالیست!</string>
 
 </resources>

@@ -29,7 +29,7 @@ suspend fun getCallDetails(context: Context, repository: Repository) = flow {
 }
 
 
-private suspend fun getCallLocation(number: String, context: Context, repository: Repository): String {
+suspend fun getCallLocation(number: String, context: Context, repository: Repository): String {
     var userNumber = number
     if (userNumber.substring(0, 1)[0] == '*')
         return context.getString(R.string.instructional_code)
