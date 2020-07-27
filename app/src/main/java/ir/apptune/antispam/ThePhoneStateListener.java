@@ -15,7 +15,7 @@ public class ThePhoneStateListener {
     Context context;
     CountDownTimer timer;
     Toast tag;
-    private static final String DB_NAME = "my.db";
+    private static final String DB_NAME = "locations.db";
     private CallStateListener callStateListener = new CallStateListener();
     private SQLiteDatabase database;
     private OutgoingReceiver outgoingReceiver = new OutgoingReceiver();

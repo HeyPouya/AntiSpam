@@ -1,7 +1,7 @@
 package ir.apptune.antispam.repository
 
 import ir.apptune.antispam.repository.local.LocalRepository
-import ir.apptune.antispam.repository.local.RoomDAO
+import ir.apptune.antispam.room.RoomDAO
 
 class Repository(private val local: LocalRepository) : RoomDAO {
 

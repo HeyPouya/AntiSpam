@@ -1,4 +1,4 @@
-package ir.apptune.antispam.repository.local
+package ir.apptune.antispam.room
 
 import androidx.room.Dao
 import androidx.room.Query
