@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.fragment_call_history.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class CallDetailsFragment : Fragment() {
+class CallLogsFragment : Fragment() {
 
     @ExperimentalCoroutinesApi
     private val viewModel: CallDetailsViewModel by viewModel()

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/callLogsFragment"
+        android:icon="@drawable/ic_call"
+        android:title="@string/call_log" />
+    <item
+        android:id="@+id/searchPhoneFragment"
+        android:icon="@drawable/ic_search"
+        android:title="@string/search" />
+    <item
+        android:id="@+id/permissionMEnu"
+        android:icon="@drawable/ic_permission"
+        android:title="@string/permissions" />
+    <item
+        android:id="@+id/aboutMenu"
+        android:icon="@drawable/ic_info"
+        android:title="@string/about_me" />
+
+</menu>

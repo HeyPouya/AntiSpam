@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">مکان یاب تماس</string>
     <string name="please_insert_the_phone_number">لطفا شماره تلفن مورد نظر خود را وارد کنید</string>
-    <string name="search">جستجو</string>
     <string name="take_care_of_the_number">*توجه کنید که شماره مورد نظر شما حتما با 0 شروع شده و 11 رقمی باشد.</string>
     <string name="sms_send">Sms Sent</string>
     <string name="sms_not_send">Sms Not Sent</string>
@@ -12,5 +11,9 @@
     <string name="instructional_code">کد دستوری</string>
     <string name="your_call_log_is_empty">تاریخچه تماس شما خالیست!</string>
     <string name="please_provide_call_log_permission_to_see_the_call_log">برای مشاهده تاریخچه تماس، لطفا دسترسی مورد نظر را از بخش تنظیمات فراهم کنید</string>
+    <string name="call_log">تاریخچه تماس</string>
+    <string name="search">جستجو</string>
+    <string name="about_me">درباره من</string>
+    <string name="permissions">دسترسی ها</string>
 
 </resources>

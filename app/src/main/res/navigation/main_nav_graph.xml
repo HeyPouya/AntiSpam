@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/callLogsFragment">
+
+    <fragment
+        android:id="@+id/searchPhoneFragment"
+        android:name="ir.apptune.antispam.features.search.SearchPhoneFragment"
+        android:label="search_phone_fragment"
+        tools:layout="@layout/search_phone_fragment" />
+    <fragment
+        android:id="@+id/callLogsFragment"
+        android:name="ir.apptune.antispam.features.callog.CallLogsFragment"
+        android:label="CallLogsFragment" />
+</navigation>
