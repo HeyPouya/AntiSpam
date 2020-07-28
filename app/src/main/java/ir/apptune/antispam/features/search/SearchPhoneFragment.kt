@@ -1,16 +1,16 @@
 package ir.apptune.antispam.features.search
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import ir.apptune.antispam.R
+import org.koin.android.ext.android.inject
 
 class SearchPhoneFragment : Fragment() {
 
-    private lateinit var viewModel: SearchPhoneViewModel
+    private val viewModel: SearchPhoneViewModel by inject()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -19,8 +19,6 @@ class SearchPhoneFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(SearchPhoneViewModel::class.java)
-        // TODO: Use the ViewModel
     }
 
 }
