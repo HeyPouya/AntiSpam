@@ -26,25 +26,13 @@ suspend fun getCallDetails(context: Context, repository: Repository, contactsPer
                     getIranianDate(cursor.getString(callLogDate).toLong()),
                     cursor.getInt(callLogType),
                     contactName,
-                    getCallLocation(number, context, repository))
+                    repository.getAddress(number) ?: context.getString(R.string.no_matching_result))
             emit(model)
         }
     }
     cursor?.close()
 }
 
-
-suspend fun getCallLocation(number: String, context: Context, repository: Repository): String {
-    var userNumber = number
-    if (userNumber.substring(0, 1)[0] == '*')
-        return context.getString(R.string.instructional_code)
-
-    if (userNumber.substring(0, 1)[0] == '0')
-        userNumber = "+98" + userNumber.substring(1)
-
-    userNumber = userNumber.replace("+98", "")
-    return repository.getAddress(userNumber) ?: context.getString(R.string.no_matching_result)
-}
 
 private suspend fun getIranianDate(date: Long): String {
     val calendar = GregorianCalendar()
