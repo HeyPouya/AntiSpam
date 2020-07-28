@@ -6,9 +6,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewGroup.LayoutParams.MATCH_PARENT
-import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -16,7 +13,6 @@ import ir.apptune.antispam.R
 import ir.apptune.antispam.features.callog.adapter.CallHistoryAdapter
 import ir.apptune.antispam.pojos.LiveDataResource
 import ir.apptune.antispam.pojos.PermissionStatusEnum
-import ir.apptune.antispam.utils.getStatusBarHeight
 import kotlinx.android.synthetic.main.empty_state_layout.*
 import kotlinx.android.synthetic.main.fragment_call_history.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -36,9 +32,7 @@ class CallDetailsFragment : Fragment() {
     @ExperimentalCoroutinesApi
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        (activity as AppCompatActivity?)!!.setSupportActionBar(toolbar)
 
-        setStatusBar()
         recycler.adapter = adapter
 
         if (savedInstanceState == null)
@@ -86,11 +80,6 @@ class CallDetailsFragment : Fragment() {
         recycler.visibility = View.VISIBLE
     }
 
-    private fun setStatusBar() {
-        val statusBarHeight = getStatusBarHeight(requireContext())
-        viewStatusBar.layoutParams = ConstraintLayout.LayoutParams(MATCH_PARENT, statusBarHeight)
-        viewStatusBar.background = ContextCompat.getDrawable(requireContext(), R.drawable.toolbar_shape)
-    }
     //    private void showSearchData() {
 
     //        txtShowCity = (TextView) getView().findViewById(R.id.txt_show_city);

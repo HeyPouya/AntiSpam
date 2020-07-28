@@ -10,10 +10,6 @@ import ir.apptune.antispam.R
 
 class SearchPhoneFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = SearchPhoneFragment()
-    }
-
     private lateinit var viewModel: SearchPhoneViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
