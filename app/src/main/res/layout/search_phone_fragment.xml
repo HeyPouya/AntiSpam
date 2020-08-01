@@ -30,6 +30,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
+                android:gravity="end|center"
                 android:hint="@string/enter_your_phone_number"
                 android:imeOptions="actionSearch"
                 android:importantForAutofill="no"
