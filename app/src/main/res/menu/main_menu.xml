@@ -14,7 +14,7 @@
         android:icon="@drawable/ic_permission"
         android:title="@string/permissions" />
     <item
-        android:id="@+id/aboutMenu"
+        android:id="@+id/aboutMeFragment"
         android:icon="@drawable/ic_info"
         android:title="@string/about_me" />
 

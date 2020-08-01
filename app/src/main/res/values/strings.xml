@@ -15,5 +15,13 @@
     <string name="search">جستجو</string>
     <string name="about_me">درباره من</string>
     <string name="permissions">دسترسی ها</string>
+    <string name="github">github</string>
+    <string name="linkedin">linkedin</string>
+    <string name="website">website</string>
+    <string name="app_description">مکان یاب تماس به صورت متن باز عرضه شده تا تمامی علاقه مندان به حوزه برنامه نویسی بتوانند کدهای آن را مشاهده و در صورت نیاز استفاده کنند.</string>
+    <string name="technologies">تکنولوژی ها</string>
+    <string name="technologies_description">RxJava\nMVVM\nArchitecture components\n(LiveData,ViewModel,Room)\nDagger2\nRetrofit\nNavigation Component\nSingle Activity\nSafe Args</string>
+    <string name="contact_me">ارتباط با من</string>
+    <string name="pouya_heydari">پویا حیدری</string>
 
 </resources>

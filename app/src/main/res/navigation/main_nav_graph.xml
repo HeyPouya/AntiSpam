@@ -14,4 +14,8 @@
         android:id="@+id/callLogsFragment"
         android:name="ir.apptune.antispam.features.callog.CallLogsFragment"
         android:label="CallLogsFragment" />
+    <fragment
+        android:id="@+id/aboutMeFragment"
+        android:name="ir.apptune.antispam.features.about.AboutMeFragment"
+        android:label="AboutMeFragment" />
 </navigation>
