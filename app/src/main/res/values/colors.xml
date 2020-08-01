@@ -4,4 +4,5 @@
     <color name="colorPrimaryDark">#1293F3</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorWhite">#FFF</color>
+    <color name="bulletColor">#586067</color>
 </resources>

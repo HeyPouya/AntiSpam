@@ -20,8 +20,13 @@
     <string name="website">website</string>
     <string name="app_description">مکان یاب تماس به صورت متن باز عرضه شده تا تمامی علاقه مندان به حوزه برنامه نویسی بتوانند کدهای آن را مشاهده و در صورت نیاز استفاده کنند.</string>
     <string name="technologies">تکنولوژی ها</string>
-    <string name="technologies_description">RxJava\nMVVM\nArchitecture components\n(LiveData,ViewModel,Room)\nDagger2\nRetrofit\nNavigation Component\nSingle Activity\nSafe Args</string>
+    <string name="technologies_description">Kotlin\nCoroutines\nMVVM\nArchitecture components\n(LiveData,ViewModel,Room)\Koin\nNavigation Component\nSingle Activity</string>
     <string name="contact_me">ارتباط با من</string>
     <string name="pouya_heydari">پویا حیدری</string>
+    <string name="enter_your_phone_number">شماره تلفن مورد نظر را وارد نمایید</string>
+    <string name="bullet">بولت</string>
+    <string name="cant_track_rightel_and_irancell">شماره های ایرانسل و رایتل به دلیل یکسان بودن پیش شماره ها در تمام کشور قابلیت تشخیص مکان را ندارند.</string>
+    <string name="dont_forget_to_enter_zip_code">برای بررسی مکان شماره های ثابت، حتما در ابتدا پیش شماره شهر مورد نظر را وارد نمایید.</string>
+    <string name="wrong_number">شماره وارد شده اشتباه است و یا در بانک اطلاعاتی موجود نیست.</string>
 
 </resources>
