@@ -29,5 +29,6 @@
     <string name="call_log_permission_description">این دسترسی برای نمایش مکان افرادی که تا به حال با شما تماس گرفته اند استفاده می شود</string>
     <string name="read_contacts_permission_description">این دسترسی برای نمایش نام محاطبین شما در تاریخجه تماس ها استفاده می شود</string>
     <string name="contacts">مخاطبین</string>
+    <string name="all_permissions_are_granted">عالی! تمام دسترسی های مورد نیاز اپلیکیشن فراهم شده اند!</string>
 
 </resources>
