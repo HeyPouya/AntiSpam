@@ -10,7 +10,7 @@
         android:icon="@drawable/ic_search"
         android:title="@string/search" />
     <item
-        android:id="@+id/permissionMEnu"
+        android:id="@+id/permissionsFragment"
         android:icon="@drawable/ic_permission"
         android:title="@string/permissions" />
     <item

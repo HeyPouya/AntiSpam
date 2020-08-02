@@ -8,13 +8,13 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
-                  <entry key="aboutMeFragment2">
+                  <entry key="aboutMeFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="360" />
-                            <option name="y" value="-251" />
+                            <option name="x" value="764" />
+                            <option name="y" value="37" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -32,13 +32,25 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="permissionsFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="593" />
+                            <option name="y" value="36" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="searchPhoneFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="573" />
-                            <option name="y" value="43" />
+                            <option name="x" value="386" />
+                            <option name="y" value="41" />
                           </Point>
                         </option>
                       </LayoutPositions>

@@ -1,4 +1,4 @@
-package ir.apptune.antispam.features.about
+package ir.apptune.antispam.features.search
 
 import android.view.LayoutInflater
 import android.view.View

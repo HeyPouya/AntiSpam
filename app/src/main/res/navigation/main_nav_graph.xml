@@ -18,4 +18,9 @@
         android:id="@+id/aboutMeFragment"
         android:name="ir.apptune.antispam.features.about.AboutMeFragment"
         android:label="AboutMeFragment" />
+    <fragment
+        android:id="@+id/permissionsFragment"
+        android:name="ir.apptune.antispam.features.permission.PermissionsFragment"
+        android:label="permissions_fragment"
+        tools:layout="@layout/permissions_fragment" />
 </navigation>
