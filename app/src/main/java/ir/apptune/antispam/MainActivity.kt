@@ -8,14 +8,17 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import ir.apptune.antispam.features.service.ForegroundService
 import ir.apptune.antispam.utils.getStatusBarHeight
 import kotlinx.android.synthetic.main.activity_main.*
 
+
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        startService(Intent(this, ShakerService::class.java))
+        ContextCompat.startForegroundService(this, Intent(this, ForegroundService::class.java))
         bottomNav.setupWithNavController(findNavController(R.id.navFragment))
         setSupportActionBar(toolbar)
         setStatusBar()

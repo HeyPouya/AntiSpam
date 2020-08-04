@@ -30,5 +30,8 @@
     <string name="read_contacts_permission_description">این دسترسی برای نمایش نام محاطبین شما در تاریخجه تماس ها استفاده می شود</string>
     <string name="contacts">مخاطبین</string>
     <string name="all_permissions_are_granted">عالی! تمام دسترسی های مورد نیاز اپلیکیشن فراهم شده اند!</string>
+    <string name="channel_name">اطلاع رسانی فعالیت سرویس</string>
+    <string name="channel_description">این کانال برای نمایش نوتیفیکیشن های اطلاع رسانی در مورد فعالیت برنامه استفاده میشود</string>
+    <string name="notification_description">مکان یاب تماس در حال اجراست</string>
 
 </resources>
