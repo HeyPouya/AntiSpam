@@ -10,6 +10,9 @@ import org.koin.dsl.module
 val utilsModule = module {
 
     single {
-        CallDetailClass(androidContext(), get(), ContextCompat.checkSelfPermission(androidContext(), Manifest.permission.READ_CONTACTS) == PackageManager.PERMISSION_GRANTED)
+        CallDetailClass(androidContext(),
+                get(),
+                ContextCompat.checkSelfPermission(androidContext(),
+                        Manifest.permission.READ_CONTACTS) == PackageManager.PERMISSION_GRANTED)
     }
 }

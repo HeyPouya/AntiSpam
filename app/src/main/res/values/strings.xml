@@ -33,5 +33,7 @@
     <string name="channel_name">اطلاع رسانی فعالیت سرویس</string>
     <string name="channel_description">این کانال برای نمایش نوتیفیکیشن های اطلاع رسانی در مورد فعالیت برنامه استفاده میشود</string>
     <string name="notification_description">مکان یاب تماس در حال اجراست</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

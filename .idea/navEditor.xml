@@ -56,6 +56,27 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="splashFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-96" />
+                            <option name="y" value="36" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_splashFragment_to_callLogsFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                 </map>
               </option>
             </LayoutPositions>
