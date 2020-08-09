@@ -23,11 +23,10 @@ class SplashFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        if (sharedPreferences.getBoolean(FIRST_LOGIN, false)) {
-
-            //TODO: Make permission introduction pages
-        } else {
+        if (sharedPreferences.getBoolean(FIRST_LOGIN, true)) {
+            findNavController().navigate(R.id.action_splashFragment_to_introFragment)
+            sharedPreferences.edit().putBoolean(FIRST_LOGIN, false).apply()
+        } else
             findNavController().navigate(R.id.action_splashFragment_to_callLogsFragment)
-        }
     }
 }

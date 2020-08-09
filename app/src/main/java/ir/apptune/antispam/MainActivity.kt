@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         bottomNav.setupWithNavController(findNavController(R.id.navFragment))
         findNavController(R.id.navFragment).addOnDestinationChangedListener { _: NavController, navDestination: NavDestination, _: Bundle? ->
             when (navDestination.id) {
-                R.id.splashFragment -> hideToolbarBottomNav()
+                R.id.splashFragment, R.id.introFragment -> hideToolbarBottomNav()
                 else -> showToolbarBottomNav()
             }
         }
