@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "ir.apptune.antispam",
+  "variantName": "release",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "properties": [],
+      "versionCode": 500,
+      "versionName": "5.0.0",
+      "enabled": true,
+      "outputFile": "app-release.apk"
+    }
+  ]
+}

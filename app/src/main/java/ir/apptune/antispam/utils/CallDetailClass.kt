@@ -4,6 +4,7 @@ import android.content.Context
 import android.net.Uri
 import android.provider.CallLog
 import android.provider.ContactsContract
+import android.util.Log
 import ir.apptune.antispam.R
 import ir.apptune.antispam.pojos.CallModel
 import ir.apptune.antispam.repository.Repository
@@ -22,7 +23,7 @@ class CallDetailClass(private val context: Context, private val repository: Repo
 
             while (cursor.moveToNext()) {
                 val number = cursor.getString(callLogNumber)
-                val contactName = if (contactsPermission) getContactName(context, number) else number
+                val contactName = if (contactsPermission && !number.isNullOrEmpty()) getContactName(context, number) else number
                 val model = CallModel(number,
                         getIranianDate(cursor.getString(callLogDate).toLong()),
                         cursor.getInt(callLogType),
@@ -43,7 +44,8 @@ class CallDetailClass(private val context: Context, private val repository: Repo
         return tool.iranianDate
     }
 
-    private suspend fun getContactName(context: Context, phoneNumber: String?): String? {
+    private suspend fun getContactName(context: Context, phoneNumber: String): String? {
+        Log.d("TAG", "getContactName: $phoneNumber")
         val uri = Uri.withAppendedPath(ContactsContract.PhoneLookup.CONTENT_FILTER_URI, Uri.encode(phoneNumber))
         val cursor = context.contentResolver.query(uri, arrayOf(ContactsContract.PhoneLookup.DISPLAY_NAME), null, null, null)
                 ?: return null

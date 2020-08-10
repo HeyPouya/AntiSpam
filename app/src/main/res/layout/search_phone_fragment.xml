@@ -37,8 +37,7 @@
                 android:inputType="phone"
                 android:lines="1"
                 android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:textColor="@android:color/black" />
+                android:paddingEnd="16dp" />
 
             <ImageView
                 android:id="@+id/btnSearch"
@@ -72,7 +71,6 @@
         android:layout_height="0dp"
         android:layout_margin="16dp"
         android:gravity="center_horizontal"
-        android:textColor="@android:color/primary_text_light"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
