@@ -14,7 +14,7 @@
     <string name="website">website</string>
     <string name="app_description">مکان یاب تماس به صورت متن باز عرضه شده تا تمامی علاقه مندان به حوزه برنامه نویسی بتوانند کدهای آن را مشاهده و در صورت نیاز استفاده کنند.</string>
     <string name="technologies">تکنولوژی ها</string>
-    <string name="technologies_description">Kotlin\nCoroutines\nMVVM\nArchitecture components\n(LiveData,ViewModel,Room)\Koin\nNavigation Component\nSingle Activity\nForeground Service\nBroadcastReceiver</string>
+    <string name="technologies_description">Kotlin\nCoroutines\nMVVM\nArchitecture components\n(LiveData,ViewModel,Room)\nKoin\nNavigation Component\nSingle Activity\nForeground Service\nBroadcastReceiver</string>
     <string name="contact_me">ارتباط با من</string>
     <string name="pouya_heydari">پویا حیدری</string>
     <string name="enter_your_phone_number">شماره تلفن مورد نظر را وارد نمایید</string>
