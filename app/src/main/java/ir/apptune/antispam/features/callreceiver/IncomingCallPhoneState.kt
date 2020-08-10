@@ -10,12 +10,19 @@ import ir.apptune.antispam.repository.Repository
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 
+/**
+ * Based on the phone state, shows a toast that consists of the caller's address
+ *
+ * @property repository
+ * @property context
+ */
 class IncomingCallPhoneState(private val repository: Repository, private val context: Context) : PhoneStateListener() {
 
     override fun onCallStateChanged(state: Int, phoneNumber: String?) {
         when (state) {
             CALL_STATE_RINGING, CALL_STATE_OFFHOOK -> phoneNumber?.let { showInfoByToast(it) }
-            TelephonyManager.CALL_STATE_IDLE -> { }
+            TelephonyManager.CALL_STATE_IDLE -> {
+            }
         }
     }
 

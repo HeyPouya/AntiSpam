@@ -16,6 +16,10 @@ import ir.apptune.antispam.features.callreceiver.IncomingCallReceiver
 const val NOTIFICATION_ID = 100
 const val CHANNEL_ID = "NOTIFICATION_FOR_SERVICE"
 
+/**
+ * A foreground [Service] to start a Context-based [android.content.BroadcastReceiver]
+ *
+ */
 class ForegroundService : Service() {
     override fun onBind(intent: Intent?): IBinder? {
         return null

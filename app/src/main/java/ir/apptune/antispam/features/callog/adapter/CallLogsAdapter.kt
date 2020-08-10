@@ -7,20 +7,32 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import ir.apptune.antispam.R
-import ir.apptune.antispam.features.callog.adapter.CallHistoryAdapter.MyViewHolder
+import ir.apptune.antispam.features.callog.adapter.CallLogsAdapter.CallLogsViewHolder
 import ir.apptune.antispam.pojos.CallModel
 import kotlinx.android.synthetic.main.call_history_item.view.*
 
-class CallHistoryAdapter : ListAdapter<CallModel, MyViewHolder>(CallHistoryDiffUtils()) {
+/**
+ * An adapter to show call logs in recycler view
+ *
+ */
+class CallLogsAdapter : ListAdapter<CallModel, CallLogsViewHolder>(CallLogsDiffUtils()) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CallLogsViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.call_history_item, parent, false)
-        return MyViewHolder(view)
+        return CallLogsViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) = holder.bind(getItem(position))
+    override fun onBindViewHolder(holder: CallLogsViewHolder, position: Int) = holder.bind(getItem(position))
 
-    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    /**
+     * Viewholder class for [CallLogsAdapter]
+     *
+     * @constructor
+     * receives a [View]
+     *
+     * @param itemView
+     */
+    inner class CallLogsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(model: CallModel) {
             with(itemView) {
                 with(model) {

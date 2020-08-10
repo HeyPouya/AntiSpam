@@ -3,6 +3,11 @@ package ir.apptune.antispam.repository
 import ir.apptune.antispam.repository.local.LocalRepository
 import ir.apptune.antispam.room.RoomDAO
 
+/**
+ * All repositories
+ *
+ * @property local
+ */
 class Repository(private val local: LocalRepository) : RoomDAO {
 
     override suspend fun getAddress(number: String): String? {

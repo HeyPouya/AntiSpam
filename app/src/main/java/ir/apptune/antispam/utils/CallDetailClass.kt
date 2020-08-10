@@ -11,6 +11,13 @@ import ir.apptune.antispam.repository.Repository
 import kotlinx.coroutines.flow.flow
 import java.util.*
 
+/**
+ * This class provides details about calls and contacts
+ *
+ * @property context
+ * @property repository
+ * @property contactsPermission
+ */
 class CallDetailClass(private val context: Context, private val repository: Repository, private val contactsPermission: Boolean) {
     suspend fun getCallDetails() = flow {
         val cursor = context.contentResolver.query(CallLog.Calls.CONTENT_URI,

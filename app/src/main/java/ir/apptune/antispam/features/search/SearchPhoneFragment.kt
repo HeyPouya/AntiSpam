@@ -12,6 +12,10 @@ import ir.apptune.antispam.utils.getWarningList
 import kotlinx.android.synthetic.main.search_phone_fragment.*
 import org.koin.android.ext.android.inject
 
+/**
+ * A page to search a phone number to find its address
+ *
+ */
 class SearchPhoneFragment : Fragment() {
 
     private val viewModel: SearchPhoneViewModel by inject()

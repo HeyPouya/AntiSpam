@@ -12,6 +12,11 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.launch
 
+/**
+ * Fetches cal logs of the user
+ *
+ * @property callDetails is a class that provides call logs via ContentProvider
+ */
 @ExperimentalCoroutinesApi
 class CallDetailsViewModel(private val callDetails: CallDetailClass) : ViewModel() {
 

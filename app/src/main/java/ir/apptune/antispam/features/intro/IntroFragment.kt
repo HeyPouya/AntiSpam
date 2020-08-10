@@ -9,6 +9,10 @@ import androidx.navigation.fragment.findNavController
 import ir.apptune.antispam.R
 import kotlinx.android.synthetic.main.fragment_intro.*
 
+/**
+ * A page that asks the user to give the application needed permissions
+ *
+ */
 class IntroFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {

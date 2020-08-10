@@ -15,7 +15,10 @@ import ir.apptune.antispam.features.service.ForegroundService
 import ir.apptune.antispam.utils.getStatusBarHeight
 import kotlinx.android.synthetic.main.activity_main.*
 
-
+/**
+ * We use SingleActivity approach
+ *
+ */
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

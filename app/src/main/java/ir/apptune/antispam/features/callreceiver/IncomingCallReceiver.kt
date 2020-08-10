@@ -8,6 +8,10 @@ import android.telephony.TelephonyManager
 import ir.apptune.antispam.repository.Repository
 import org.koin.java.KoinJavaComponent
 
+/**
+ * A broadcast receiver to receive calls whenever the phone rings
+ *
+ */
 class IncomingCallReceiver : BroadcastReceiver() {
 
     private val repository: Repository by KoinJavaComponent.inject(Repository::class.java)

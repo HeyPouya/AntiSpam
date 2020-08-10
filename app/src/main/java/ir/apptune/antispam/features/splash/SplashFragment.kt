@@ -12,6 +12,10 @@ import org.koin.android.ext.android.inject
 
 const val FIRST_LOGIN = "FirstLogin"
 
+/**
+ * Splash page
+ *
+ */
 class SplashFragment : Fragment() {
 
     private val sharedPreferences: SharedPreferences by inject()

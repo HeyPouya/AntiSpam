@@ -7,8 +7,12 @@ import androidx.recyclerview.widget.RecyclerView
 import ir.apptune.antispam.R
 import kotlinx.android.synthetic.main.search_warning_item.view.*
 
+/**
+ * An adapter that shows a list of warnings to the user, so the user can write the number correctly
+ *
+ * @property list list of warnings
+ */
 class WarningsAdapter(private val list: List<String>) : RecyclerView.Adapter<WarningsAdapter.WarningsViewHolder>() {
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WarningsViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.search_warning_item, parent, false)

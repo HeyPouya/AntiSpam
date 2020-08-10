@@ -7,6 +7,11 @@ import androidx.lifecycle.viewModelScope
 import ir.apptune.antispam.repository.Repository
 import kotlinx.coroutines.launch
 
+/**
+ * ViewModel to fetch searched phone number
+ *
+ * @property repository
+ */
 class SearchPhoneViewModel(private val repository: Repository) : ViewModel() {
 
     private val liveData = MutableLiveData<String>()

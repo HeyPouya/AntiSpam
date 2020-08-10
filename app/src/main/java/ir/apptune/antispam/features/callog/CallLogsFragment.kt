@@ -10,18 +10,22 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import ir.apptune.antispam.R
-import ir.apptune.antispam.features.callog.adapter.CallHistoryAdapter
+import ir.apptune.antispam.features.callog.adapter.CallLogsAdapter
 import ir.apptune.antispam.pojos.LiveDataResource
 import kotlinx.android.synthetic.main.empty_state_layout.*
 import kotlinx.android.synthetic.main.fragment_call_history.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
+/**
+ * This page shows all call logs of the user
+ *
+ */
 class CallLogsFragment : Fragment() {
 
     @ExperimentalCoroutinesApi
     private val viewModel: CallDetailsViewModel by viewModel()
-    private val adapter by lazy { CallHistoryAdapter() }
+    private val adapter by lazy { CallLogsAdapter() }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
