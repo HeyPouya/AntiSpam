@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">مکان یاب تماس</string>
     <string name="call_status_icon">Call Status Icon</string>
-    <string name="no_matching_result">شماره تلفن پیدا نشد!</string>
+    <string name="no_matching_result">شماره وارد شده اشتباه است و یا در بانک اطلاعاتی موجود نیست</string>
     <string name="instructional_code">کد دستوری</string>
     <string name="your_call_log_is_empty">تاریخچه تماس شما خالیست!</string>
     <string name="please_provide_call_log_permission_to_see_the_call_log">برای مشاهده تاریخچه تماس، لطفا دسترسی مورد نظر را از بخش تنظیمات فراهم کنید</string>
@@ -21,7 +21,6 @@
     <string name="bullet">بولت</string>
     <string name="cant_track_rightel_and_irancell">شماره های ایرانسل و رایتل به دلیل یکسان بودن پیش شماره ها در تمام کشور قابلیت تشخیص مکان را ندارند.</string>
     <string name="dont_forget_to_enter_zip_code">برای بررسی مکان شماره های ثابت، حتما در ابتدا پیش شماره شهر مورد نظر را وارد نمایید.</string>
-    <string name="wrong_number">شماره وارد شده اشتباه است و یا در بانک اطلاعاتی موجود نیست.</string>
     <string name="call_log_permission_description">این دسترسی برای نمایش مکان افرادی که تا به حال با شما تماس گرفته اند استفاده می شود</string>
     <string name="read_contacts_permission_description">این دسترسی برای نمایش نام محاطبین شما در تاریخجه تماس ها استفاده می شود</string>
     <string name="contacts">مخاطبین</string>
