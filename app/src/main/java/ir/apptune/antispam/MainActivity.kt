@@ -31,10 +31,16 @@ class MainActivity : AppCompatActivity() {
         bottomNav.setupWithNavController(findNavController(R.id.navFragment))
         findNavController(R.id.navFragment).addOnDestinationChangedListener { _: NavController, navDestination: NavDestination, _: Bundle? ->
             when (navDestination.id) {
-                R.id.splashFragment, R.id.introFragment -> hideToolbarBottomNav()
+                R.id.splashFragment -> hideToolbarBottomNav()
+                R.id.introFragment -> hideBottomNav()
                 else -> showToolbarBottomNav()
             }
         }
+    }
+
+    private fun hideBottomNav() {
+        bottomNav.visibility = View.GONE
+        toolbar.visibility = View.VISIBLE
     }
 
     private fun showToolbarBottomNav() {
