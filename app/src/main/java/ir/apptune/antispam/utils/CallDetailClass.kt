@@ -37,15 +37,14 @@ class CallDetailClass(private val context: Context, private val repository: Repo
     }
 
 
-    private suspend fun getIranianDate(date: Long): String {
+    private fun getIranianDate(date: Long): String {
         val calendar = GregorianCalendar()
         calendar.time = Date(date)
         val tool = CalendarTool(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH))
         return tool.iranianDate
     }
 
-    private suspend fun getContactName(context: Context, phoneNumber: String): String? {
-        Log.d("TAG", "getContactName: $phoneNumber")
+    private fun getContactName(context: Context, phoneNumber: String): String? {
         val uri = Uri.withAppendedPath(ContactsContract.PhoneLookup.CONTENT_FILTER_URI, Uri.encode(phoneNumber))
         val cursor = context.contentResolver.query(uri, arrayOf(ContactsContract.PhoneLookup.DISPLAY_NAME), null, null, null)
                 ?: return null

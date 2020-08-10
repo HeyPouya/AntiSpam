@@ -3,7 +3,5 @@
     <color name="colorPrimary">#1BD99D</color>
     <color name="colorPrimaryDark">#1293F3</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="colorWhite">#FFF</color>
-    <color name="bulletColor">#586067</color>
     <color name="githubColor">#670069</color>
 </resources>

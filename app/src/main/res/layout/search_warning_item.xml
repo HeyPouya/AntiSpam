@@ -13,10 +13,10 @@
         android:contentDescription="@string/bullet"
         android:padding="8dp"
         android:src="@drawable/ic_circle"
-        android:tint="@android:color/darker_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/txtWarning"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@android:color/darker_gray" />
 
     <TextView
         android:id="@+id/txtWarning"

@@ -22,7 +22,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentPermission"
-        class="ir.apptune.antispam.features.permission.PermissionsFragment"
+        android:name="ir.apptune.antispam.features.permission.PermissionsFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
@@ -35,9 +35,9 @@
         android:id="@+id/txtSkip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawableEnd="@drawable/ic_arrow_right"
         android:padding="16dp"
         android:text="@string/skip"
+        app:drawableEndCompat="@drawable/ic_arrow_right"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
