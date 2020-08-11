@@ -35,6 +35,9 @@ Technologies that are used in this projects are:
 *   ListAdapter
 *   Dark Mode
 
+### Download
+
+You can download the latet APK version from [CafeBazaar](https://cafebazaar.ir/app/ir.apptune.antispam)
 
 ## License
 
