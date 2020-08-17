@@ -1,5 +1,5 @@
 # AntiSpam
-An Android application to detect address of phone numbers in Iran. Also this is published as an Open-sourced application to 
+An Android application to detect address of phone numbers in Iran. Also this is published as an Open-sourced application to let Android developers learn the latest technologies in Android.
 
 [![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=21)
 [![Build Status](https://travis-ci.org/SirLordPouya/AntiSpam.svg?branch=master)](https://travis-ci.org/SirLordPouya/AntiSpam)
