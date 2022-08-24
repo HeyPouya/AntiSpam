@@ -7,8 +7,6 @@ import androidx.lifecycle.viewModelScope
 import ir.apptune.antispam.pojos.CallModel
 import ir.apptune.antispam.pojos.LiveDataResource
 import ir.apptune.antispam.utils.CallDetailClass
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.launch
 
@@ -17,25 +15,22 @@ import kotlinx.coroutines.launch
  *
  * @property callDetails is a class that provides call logs via ContentProvider
  */
-@ExperimentalCoroutinesApi
 class CallDetailsViewModel(private val callDetails: CallDetailClass) : ViewModel() {
 
     private val liveDataResponse = MutableLiveData<LiveDataResource>()
     private val list = arrayListOf<CallModel>()
 
-
     fun getCallLog(hasCallLogPermission: Boolean) {
-
         if (hasCallLogPermission) {
             viewModelScope.launch {
                 liveDataResponse.postValue(LiveDataResource.Loading())
                 callDetails.getCallDetails()
-                        .onCompletion {
-                            liveDataResponse.postValue(LiveDataResource.Completed(list.toList()))
-                        }.collect {
-                            list.add(it)
-                            liveDataResponse.postValue(LiveDataResource.Success(list.toList()))
-                        }
+                    .onCompletion {
+                        liveDataResponse.postValue(LiveDataResource.Completed(list.toList()))
+                    }.collect {
+                        list.add(it)
+                        liveDataResponse.postValue(LiveDataResource.Success(list.toList()))
+                    }
             }
         } else
             liveDataResponse.postValue(LiveDataResource.NoCallLogPermission())

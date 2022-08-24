@@ -3,9 +3,7 @@ package ir.apptune.antispam.features.about
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import ir.apptune.antispam.R
 import ir.apptune.antispam.utils.GITHUB_URL
@@ -16,14 +14,7 @@ import kotlinx.android.synthetic.main.fragment_about_me.*
 /**
  * A fragment only to show some about me info
  */
-class AboutMeFragment : Fragment(), View.OnClickListener {
-
-    /**
-     * inflates the layout
-     */
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_about_me, container, false)
-    }
+class AboutMeFragment : Fragment(R.layout.fragment_about_me), View.OnClickListener {
 
     /**
      * sets up click listeners

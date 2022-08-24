@@ -21,8 +21,7 @@ class IncomingCallPhoneState(private val repository: Repository, private val con
     override fun onCallStateChanged(state: Int, phoneNumber: String?) {
         when (state) {
             CALL_STATE_RINGING, CALL_STATE_OFFHOOK -> phoneNumber?.let { showInfoByToast(it) }
-            TelephonyManager.CALL_STATE_IDLE -> {
-            }
+            TelephonyManager.CALL_STATE_IDLE -> {}
         }
     }
 

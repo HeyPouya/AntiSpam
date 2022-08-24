@@ -5,11 +5,6 @@ import ir.apptune.antispam.repository.local.LocalRepository
 import org.koin.dsl.module
 
 val repositoryModule = module {
-    single {
-        LocalRepository(get())
-    }
-
-    single {
-        Repository(get())
-    }
+    single { LocalRepository(get()) }
+    single { Repository(get()) }
 }

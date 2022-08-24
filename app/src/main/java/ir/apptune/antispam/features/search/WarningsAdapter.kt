@@ -22,7 +22,7 @@ class WarningsAdapter(private val list: List<String>) : RecyclerView.Adapter<War
     override fun getItemCount() = list.size
 
     override fun onBindViewHolder(holder: WarningsViewHolder, position: Int) =
-            holder.onBind(list[position])
+        holder.onBind(list[position])
 
     class WarningsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun onBind(text: String) {

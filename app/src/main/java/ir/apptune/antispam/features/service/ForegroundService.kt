@@ -40,20 +40,22 @@ class ForegroundService : Service() {
     private fun getNotification(): Notification {
         val mNotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            val channel = NotificationChannel(CHANNEL_ID, getString(R.string.channel_name),
-                    NotificationManager.IMPORTANCE_MIN)
+            val channel = NotificationChannel(
+                CHANNEL_ID, getString(R.string.channel_name),
+                NotificationManager.IMPORTANCE_MIN
+            )
             channel.description = getString(R.string.channel_description)
             channel.importance = NotificationManager.IMPORTANCE_MIN
             mNotificationManager.createNotificationChannel(channel)
         }
         val mBuilder = NotificationCompat.Builder(applicationContext, CHANNEL_ID)
-                .setContentText(getString(R.string.notification_description))
-                .setSmallIcon(R.drawable.ic_call)
-                .setColor(ContextCompat.getColor(this, R.color.colorPrimary))
-                .setPriority(PRIORITY_MIN)
+            .setContentText(getString(R.string.notification_description))
+            .setSmallIcon(R.drawable.ic_call)
+            .setColor(ContextCompat.getColor(this, R.color.colorPrimary))
+            .setPriority(PRIORITY_MIN)
 
         val intent = Intent(applicationContext, MainActivity::class.java)
-        val pi = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+        val pi = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE)
         mBuilder.setContentIntent(pi)
         return mBuilder.build()
     }
