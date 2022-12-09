@@ -1,5 +1,5 @@
 # AntiSpam
-An Android application to detect address of phone numbers in Iran. Also this is published as an Open-sourced application to let Android developers learn the latest technologies in Android.
+**An Android application to detect address of phone numbers in Iran.**
 
 [![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=21)
 [![Build Status](https://travis-ci.org/SirLordPouya/AntiSpam.svg?branch=master)](https://travis-ci.org/SirLordPouya/AntiSpam)
@@ -8,8 +8,7 @@ An Android application to detect address of phone numbers in Iran. Also this is 
 <img src="https://raw.githubusercontent.com/SirLordPouya/AntiSpam/master/pics/icon.png" width="250">
 </p>
 
-An Android application to detect address of phone numbers in Iran. Also this is published as an Open-sourced application to let programmers learn how they can use embeded databases via room, Foreground Services and Context-based BroadcastReceivers.
-Technologies that are used in this application are listed bellow
+An Android application to detect address of phone numbers in Iran. Also this is published as an Open-sourced application to let programmers learn how they can use embedded databases via pre-populated room db, Foreground Services and Context-based BroadcastReceivers.
 
 <img src="https://raw.githubusercontent.com/SirLordPouya/AntiSpam/master/pics/Screenshot_1.png" width="250"> <img src="https://raw.githubusercontent.com/SirLordPouya/AntiSpam/master/pics/Screenshot_2.png" width="250"> <img src="https://raw.githubusercontent.com/SirLordPouya/AntiSpam/master/pics/Screenshot_3.png" width="250">
 
@@ -20,7 +19,7 @@ Technologies that are used in this application are listed bellow
 Technologies that are used in this projects are:
 
 *   MVVM
-*   Room
+*   Pre-populated Room database
 *   ViewModel
 *   Koin
 *   Foreground Service
@@ -37,7 +36,7 @@ Technologies that are used in this projects are:
 
 ### Download
 
-You can download the latet APK version from [CafeBazaar](https://cafebazaar.ir/app/ir.apptune.antispam)
+You can download the latest APK version from [CafeBazaar](https://cafebazaar.ir/app/ir.apptune.antispam)
 
 ## License
 
