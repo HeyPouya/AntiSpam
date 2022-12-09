@@ -82,11 +82,16 @@ class CallDetailClass(
             null
         )
             ?: return null
-        val contactName = if (cursor.moveToFirst())
-            cursor.getString(cursor.getColumnIndex(ContactsContract.PhoneLookup.DISPLAY_NAME))
-        else
+        val contactName = if (cursor.moveToFirst()) {
+            val columnNumber = cursor.getColumnIndex(ContactsContract.PhoneLookup.DISPLAY_NAME)
+            if (columnNumber > 0) {
+                cursor.getString(columnNumber)
+            } else {
+                null
+            }
+        } else {
             null
-
+        }
         cursor.close()
         return contactName
     }
