@@ -16,8 +16,10 @@ import kotlinx.coroutines.launch
  * @property repository
  * @property context
  */
-class IncomingCallPhoneState(private val repository: Repository, private val context: Context) : PhoneStateListener() {
+class IncomingCallPhoneState(private val repository: Repository, private val context: Context) :
+    PhoneStateListener() {
 
+    @Deprecated("Deprecated in Java")
     override fun onCallStateChanged(state: Int, phoneNumber: String?) {
         when (state) {
             CALL_STATE_RINGING, CALL_STATE_OFFHOOK -> phoneNumber?.let { showInfoByToast(it) }
