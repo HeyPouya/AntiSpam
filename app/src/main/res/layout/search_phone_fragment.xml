@@ -33,12 +33,12 @@
                 android:gravity="end|center"
                 android:hint="@string/enter_your_phone_number"
                 android:imeOptions="actionSearch"
-                android:textColor="@color/material_on_background_emphasis_medium"
                 android:importantForAutofill="no"
                 android:inputType="phone"
                 android:lines="1"
                 android:paddingStart="16dp"
-                android:paddingEnd="16dp" />
+                android:paddingEnd="16dp"
+                android:textColor="@color/material_on_background_emphasis_medium" />
 
             <ImageView
                 android:id="@+id/btnSearch"

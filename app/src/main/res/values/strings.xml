@@ -32,5 +32,4 @@
     <string name="skip">رد شدن</string>
     <string name="call_status">وضعیت تماس ها</string>
     <string name="read_phone_state_permission_description">این دسترسی برای نمایش آدرس تماس گیرنده هنگام برقراری تماس استفاده میشود</string>
-
 </resources>

@@ -1,33 +1,51 @@
 package ir.apptune.antispam.features.permission
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import ir.apptune.antispam.R
+import ir.apptune.antispam.databinding.PermissionsFragmentBinding
 import ir.apptune.antispam.utils.checkNeededPermissions
-import kotlinx.android.synthetic.main.empty_state_layout.*
-import kotlinx.android.synthetic.main.permissions_fragment.*
 
 /**
  * This page shows a list of permissions that are required by the app, but user hasn't given the permission yet
  *
  */
-class PermissionsFragment : Fragment(R.layout.permissions_fragment) {
+class PermissionsFragment : Fragment() {
 
-    private val adapter: PermissionsAdapter by lazy { PermissionsAdapter { ActivityCompat.requestPermissions(requireActivity(), arrayOf(it), 100) } }
+    private var _binding: PermissionsFragmentBinding? = null
+    private val binding get() = _binding!!
+    private val adapter: PermissionsAdapter by lazy {
+        PermissionsAdapter {
+            ActivityCompat.requestPermissions(
+                requireActivity(),
+                arrayOf(it),
+                100
+            )
+        }
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = PermissionsFragmentBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        recycler.adapter = adapter
+        binding.recycler.adapter = adapter
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        registerForActivityResult(
-            ActivityResultContracts.RequestPermission()
-        ) { isGranted ->
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) {
             checkPermissionsStatus()
         }
     }
@@ -47,15 +65,20 @@ class PermissionsFragment : Fragment(R.layout.permissions_fragment) {
         }
     }
 
-    private fun hideEmptyState() {
+    private fun hideEmptyState() = with(binding) {
         recycler.visibility = View.VISIBLE
-        layoutCallLogEmpty.visibility = View.GONE
+        layoutEmptyState.layoutCallLogEmpty.visibility = View.GONE
     }
 
-    private fun showEmptyState() {
+    private fun showEmptyState() = with(binding) {
         recycler.visibility = View.GONE
-        layoutCallLogEmpty.visibility = View.VISIBLE
-        txtCallLogEmpty.text = getString(R.string.all_permissions_are_granted)
-        imgCallLogEmpty.setImageResource(R.drawable.ic_check)
+        layoutEmptyState.layoutCallLogEmpty.visibility = View.VISIBLE
+        layoutEmptyState.txtCallLogEmpty.text = getString(R.string.all_permissions_are_granted)
+        layoutEmptyState.imgCallLogEmpty.setImageResource(R.drawable.ic_check)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

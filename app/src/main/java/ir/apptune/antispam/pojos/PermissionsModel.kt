@@ -7,4 +7,8 @@ package ir.apptune.antispam.pojos
  * @property permissionName
  * @property description
  */
-data class PermissionsModel(val permission: String, val permissionName: String, val description: String)
+data class PermissionsModel(
+    val permission: String,
+    val permissionName: String,
+    val description: String
+)

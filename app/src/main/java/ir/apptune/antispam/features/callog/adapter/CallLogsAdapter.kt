@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import ir.apptune.antispam.R
+import ir.apptune.antispam.databinding.CallHistoryItemBinding
 import ir.apptune.antispam.features.callog.adapter.CallLogsAdapter.CallLogsViewHolder
 import ir.apptune.antispam.pojos.CallModel
-import kotlinx.android.synthetic.main.call_history_item.view.*
 
 /**
  * An adapter to show call logs in recycler view
@@ -18,11 +18,13 @@ import kotlinx.android.synthetic.main.call_history_item.view.*
 class CallLogsAdapter : ListAdapter<CallModel, CallLogsViewHolder>(CallLogsDiffUtils()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CallLogsViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.call_history_item, parent, false)
-        return CallLogsViewHolder(view)
+        val binding =
+            CallHistoryItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return CallLogsViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: CallLogsViewHolder, position: Int) = holder.bind(getItem(position))
+    override fun onBindViewHolder(holder: CallLogsViewHolder, position: Int) =
+        holder.bind(getItem(position))
 
     /**
      * Viewholder class for [CallLogsAdapter]
@@ -30,18 +32,21 @@ class CallLogsAdapter : ListAdapter<CallModel, CallLogsViewHolder>(CallLogsDiffU
      * @constructor
      * receives a [View]
      *
-     * @param itemView
+     * @param binding
      */
-    inner class CallLogsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class CallLogsViewHolder(private val binding: CallHistoryItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(model: CallModel) {
-            with(itemView) {
+            with(binding) {
                 with(model) {
                     txtDate.text = callDate
                     txtName.text = contactName ?: number
                     txtCity.text = callLocation
                     when (model.callStatus) {
                         CallLog.Calls.OUTGOING_TYPE -> imgCallStatus.setImageResource(R.drawable.ic_outgoing_call)
-                        CallLog.Calls.INCOMING_TYPE, CallLog.Calls.REJECTED_TYPE -> imgCallStatus.setImageResource(R.drawable.ic_incomming_call)
+                        CallLog.Calls.INCOMING_TYPE, CallLog.Calls.REJECTED_TYPE -> imgCallStatus.setImageResource(
+                            R.drawable.ic_incomming_call
+                        )
                         CallLog.Calls.MISSED_TYPE -> imgCallStatus.setImageResource(R.drawable.ic_missed_call)
                         else -> imgCallStatus.setImageResource(R.drawable.ic_unknown_call)
                     }

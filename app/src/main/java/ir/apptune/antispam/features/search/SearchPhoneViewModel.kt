@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
  */
 class SearchPhoneViewModel(private val repository: Repository) : ViewModel() {
 
-    private val liveData = MutableLiveData<String>()
+    private val liveData = MutableLiveData<String?>()
 
     fun searchLocation(number: String) {
         viewModelScope.launch {
@@ -23,5 +23,5 @@ class SearchPhoneViewModel(private val repository: Repository) : ViewModel() {
         }
     }
 
-    fun getPhoneNumberDetailsLiveData(): LiveData<String> = liveData
+    fun getPhoneNumberDetailsLiveData(): LiveData<String?> = liveData
 }

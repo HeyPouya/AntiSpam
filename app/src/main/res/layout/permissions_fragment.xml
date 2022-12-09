@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".features.permission.PermissionsFragment">
 
-    <include layout="@layout/empty_state_layout" />
+    <include layout="@layout/empty_state_layout"
+        android:id="@+id/layoutEmptyState"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"

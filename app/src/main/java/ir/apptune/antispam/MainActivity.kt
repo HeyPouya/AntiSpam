@@ -11,9 +11,9 @@ import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import ir.apptune.antispam.databinding.ActivityMainBinding
 import ir.apptune.antispam.features.service.ForegroundService
 import ir.apptune.antispam.utils.getStatusBarHeight
-import kotlinx.android.synthetic.main.activity_main.*
 
 /**
  * We use SingleActivity approach
@@ -21,17 +21,19 @@ import kotlinx.android.synthetic.main.activity_main.*
  */
 class MainActivity : AppCompatActivity() {
 
+    private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(binding.root)
         ContextCompat.startForegroundService(this, Intent(this, ForegroundService::class.java))
         setUpBottomNav()
-        setSupportActionBar(toolbar)
+        setSupportActionBar(binding.toolbar)
         setStatusBar()
     }
 
     private fun setUpBottomNav() {
-        bottomNav.setupWithNavController(findNavController(R.id.navFragment))
+        binding.bottomNav.setupWithNavController(findNavController(R.id.navFragment))
         findNavController(R.id.navFragment).addOnDestinationChangedListener { _: NavController, navDestination: NavDestination, _: Bundle? ->
             when (navDestination.id) {
                 R.id.splashFragment -> hideToolbarBottomNav()
@@ -41,24 +43,26 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun hideBottomNav() {
+    private fun hideBottomNav() = with(binding) {
         bottomNav.visibility = View.GONE
         toolbar.visibility = View.VISIBLE
     }
 
-    private fun showToolbarBottomNav() {
+    private fun showToolbarBottomNav() = with(binding) {
         bottomNav.visibility = View.VISIBLE
         toolbar.visibility = View.VISIBLE
     }
 
-    private fun hideToolbarBottomNav() {
+    private fun hideToolbarBottomNav() = with(binding) {
         bottomNav.visibility = View.GONE
         toolbar.visibility = View.GONE
     }
 
-    private fun setStatusBar() {
-        val statusBarHeight = getStatusBarHeight(this)
-        viewStatusBar.layoutParams = ConstraintLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, statusBarHeight)
-        viewStatusBar.background = ContextCompat.getDrawable(this, R.drawable.toolbar_shape)
+    private fun setStatusBar() = with(binding) {
+        val statusBarHeight = getStatusBarHeight(this@MainActivity)
+        viewStatusBar.layoutParams =
+            ConstraintLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, statusBarHeight)
+        viewStatusBar.background =
+            ContextCompat.getDrawable(this@MainActivity, R.drawable.toolbar_shape)
     }
 }

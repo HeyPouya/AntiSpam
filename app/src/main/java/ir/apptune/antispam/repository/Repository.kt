@@ -14,7 +14,10 @@ class Repository(private val local: LocalRepository) : RoomDAO {
         var userNumber = number
         var maxLength = 8
 
-        if (!(userNumber.startsWith('*') || userNumber.startsWith('0') || userNumber.startsWith("0098") || userNumber.startsWith("+98") || userNumber.startsWith("98")))
+        if (!(userNumber.startsWith('*') || userNumber.startsWith('0') || userNumber.startsWith("0098") || userNumber.startsWith(
+                "+98"
+            ) || userNumber.startsWith("98"))
+        )
             return "شماره وارد شده اشتباه است و یا در بانک اطلاعاتی موجود نیست"
 
         when {

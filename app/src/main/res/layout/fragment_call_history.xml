@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include layout="@layout/empty_state_layout" />
+    <include layout="@layout/empty_state_layout"
+        android:id="@+id/layoutEmptyState"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"
